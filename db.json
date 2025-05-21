@@ -1,0 +1,98 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "cpf": "12312312312",
+      "name": "Rodrigo",
+      "address": "Às Pampa",
+      "dateOfBirth": "09/12/1991"
+    },
+    {
+      "id": "2",
+      "cpf": "32132132132",
+      "name": "Tayla",
+      "address": "Aquele Lá",
+      "dateOfBirth": "12/12/2002"
+    },
+    {
+      "id": "402752826",
+      "cpf": "asd",
+      "name": "asd",
+      "address": "asd",
+      "dateOfBirth": "2024-12-19"
+    },
+    {
+      "id": "867219434",
+      "cpf": "asd",
+      "name": "Dângelo",
+      "address": "aasd",
+      "dateOfBirth": "2024-12-20"
+    }
+  ],
+  "schools": [
+    {
+      "id": "1",
+      "cnpj": "1",
+      "name": "FUMEC",
+      "type": "Superior"
+    },
+    {
+      "id": "2",
+      "cnpj": "2",
+      "name": "PUC",
+      "type": "Superior"
+    },
+    {
+      "id": "975611078",
+      "cnpj": "523456",
+      "name": "gsdfgh",
+      "type": "Tecnólogo"
+    }
+  ],
+  "school-student": [
+    {
+      "id": "1",
+      "school_id": 1,
+      "student_id": 1,
+      "fos": "Front-End"
+    },
+    {
+      "id": "2",
+      "school_id": 2,
+      "student_id": 2,
+      "fos": "Front-End"
+    },
+    {
+      "id": "244616862",
+      "school_id": "2",
+      "student_id": "867219434",
+      "fos": "Web"
+    },
+    {
+      "id": "558497194",
+      "school_id": "Universidade Braz Cubas",
+      "student_id": "1",
+      "fos": "Web"
+    },
+    {
+      "id": "426247660",
+      "school_id": "Universidade Comunitária da Região de Chapecó - Unochapecó",
+      "student_id": "1",
+      "fos": "Web"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "1",
+      "name": "teste",
+      "email": "teste@gmail.com",
+      "password": "admin"
+    },
+    {
+      "id": "256384210",
+      "name": "",
+      "email": "",
+      "password": ""
+    }
+  ]
+}

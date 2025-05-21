@@ -1,0 +1,6 @@
+<h1>Selecionar Aluno</h1>
+<ul>
+  <li *ngFor="let student of students">
+    <a [routerLink]="['/usr/select/student', student.id]" routerLinkActive="router-link-active" >{{student.name}}</a>
+  </li>
+</ul>

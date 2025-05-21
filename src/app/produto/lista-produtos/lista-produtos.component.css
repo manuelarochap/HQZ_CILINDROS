@@ -1,0 +1,126 @@
+.produtos-section {
+  padding: 50px 20px;
+  background: linear-gradient(to left, #004C75, #007BFF);
+  font-family: 'Roboto', sans-serif;
+}
+
+.produtos-title {
+  font-family: 'Almarai', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right, #ffffff, #cce6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brilhoTexto 3s ease-in-out infinite alternate;
+}
+
+@keyframes brilhoTexto {
+  from {
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.2);
+  }
+  to {
+    text-shadow: 2px 2px 12px rgba(255, 255, 255, 0.6);
+  }
+}
+
+
+
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0;
+  list-style: none;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.produto-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.produto-nome {
+  font-size: 20px;
+  font-weight: bold;
+  color: #272D4E;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.produto-descricao {
+  font-size: 14px;
+  color: #6e7a8a;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.produto-preco {
+  font-size: 18px;
+  color: #299EF3;
+  font-weight: bold;
+  display: block;
+}
+
+
+.botao-voltar {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-family: 'Almarai', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #003B5C;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+.botao-voltar:hover {
+  background: #005B94;
+}
+
+
+.container-btn{
+  display: flex;
+  justify-content: end;
+  padding: 0 45px;
+}
+
+
+.botao-comprar {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: linear-gradient(to right, #007BFF, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.botao-comprar:hover {
+  background: linear-gradient(to right, #0056b3, #003f7f);
+}
+
+
+.container-btnComprar{
+  display: flex;
+  justify-content: end;
+}

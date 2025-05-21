@@ -1,0 +1,75 @@
+
+$highlight-link-color: #344466;
+$highlight-link-hover-color: #0056b3;
+$active-link-color: #28a745;
+$background-color: #f8f9fa;
+$background-page-color: #344466;
+$border-color: #dee2e6;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$hover-background-color: #e9ecef;
+$text-color: #343a40;
+
+
+body {
+  background-color: $background-page-color;
+  color: $text-color;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.highlight-link {
+  color: $highlight-link-color;
+  text-decoration: none;
+}
+
+.highlight-link:hover {
+  color: $highlight-link-hover-color;
+  text-decoration: underline;
+}
+
+.router-link-active {
+  font-weight: bold;
+  color: $active-link-color;
+}
+
+.link-box {
+  text-align: center;
+  padding: 20px;
+  margin: 15px;
+  background-color: #ffffff;
+  border: 2px solid $border-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px $shadow-color;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    background-color: $hover-background-color;
+    cursor: pointer;
+    box-shadow: 0 4px 8px $shadow-color;
+  }
+
+  i {
+    font-size: 36px;
+    color: $highlight-link-color;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $highlight-link-hover-color;
+    }
+  }
+}
+
+.section-header {
+  font-size: 24px;
+  font-weight: bold;
+  color: $text-color;
+  margin-top: 10px;
+}
+
+.row {
+  margin-bottom: 30px;
+}
+
+ul{
+  list-style-type: none;
+}

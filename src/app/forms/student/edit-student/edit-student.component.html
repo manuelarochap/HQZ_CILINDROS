@@ -1,0 +1,23 @@
+<div class="form-margin-gradely"  *ngIf="student">
+  <form (ngSubmit)="editStudent(student)">
+    <div class="form-group">
+      <label for="student-name">Nome do Aluno</label>
+      <input class="form-control" id="student-name" placeholder="Nome" [(ngModel)]="student!.name" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+      <label for="student-cpf">CPF</label>
+      <input class="form-control" id="school-name" placeholder="CPF" [(ngModel)]="student!.cpf" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+      <label for="student-address">Endereço</label>
+      <input class="form-control" id="school-name" placeholder="Endereço" [(ngModel)]="student!.address" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+      <label for="dateOfBirth">Data de Nascimento</label>
+      <input class="form-control" id="dateOfBirth" type="date" [(ngModel)]="student!.dateOfBirth"  [ngModelOptions]="{standalone: true}">
+    </div>
+    <button type="submit" class="btn btn-primary btn-divider-gr">Submit</button>
+    <button type="button" class="btn btn-primary btn-divider-gr" (click)="deleteStudent(student!.id)">Delete</button>
+  </form>
+</div>
+

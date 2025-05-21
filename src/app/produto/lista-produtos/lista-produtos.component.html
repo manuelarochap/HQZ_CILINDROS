@@ -1,0 +1,16 @@
+<div class="produtos-section">
+  <div class="container-btn"><a class="botao-voltar" href="javascript:history.back()">← Voltar</a></div>
+  <div class="container">
+    <h2 class="produtos-title">Lista de Produtos Pneumáticos</h2>
+    <ul class="produtos-grid">
+      <li *ngFor="let produto of produtos" class="produto-card">
+        <div class="produto-info">
+          <strong class="produto-nome">{{ produto.nome }}</strong><br>
+          <span class="produto-descricao">{{ produto.descricao }}</span><br>
+          <span class="produto-preco">R$ {{ produto.preco | number:'1.2-2' }}</span>
+          <div class="container-btnComprar"><button class="botao-comprar">Comprar</button></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

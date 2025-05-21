@@ -1,0 +1,23 @@
+<h2>Alunos</h2>
+<div class="table-responsive small">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th scope="col">CPF</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Peça</th>
+        <th scope="col">Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let schoolStudent of schoolStudents">
+        <ng-container *ngFor="let student of students">
+          <td *ngIf="schoolStudent.student_id == student.id">{{student.cpf}}</td>
+          <td *ngIf="schoolStudent.student_id == student.id">{{student.name}}</td>
+        </ng-container>
+        <td>{{schoolStudent.school_id}}</td>
+        <td>{{schoolStudent.fos}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

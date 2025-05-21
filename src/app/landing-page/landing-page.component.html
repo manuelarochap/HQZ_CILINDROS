@@ -1,0 +1,152 @@
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+    <a class="navbar-brand" href="#home">
+      <!--<img src="assets/logohqz.jpg" alt="Gradely Logo" class="logo">-->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/produtos']">Produtos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#solucoes">Soluções</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="#comunidade">Comunidade</a></li>-->
+        <!--<li class="nav-item"><a class="nav-link" href="#cursos">Recursos</a></li> -->
+       <!-- <li class="nav-item"><a class="nav-link" href="#instituicoes">Preços</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="#Contato">Contato</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-search"></i></a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></li>
+        <li class="nav-item">
+          <a class="btn btn-primary btn-sm" [routerLink]="['/signup']" routerLinkActive="router-link-active" >Registrar</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="home-section">
+    <div class="container">
+      <h1 class="home-title">
+        HQZ <div class="subtitulo">cilindros</div>
+      </h1>
+      <p class="home-description">
+        Desde 2016, a HQZ Pneumática oferece reformas e cilindros especiais com qualidade, agilidade e custo-benefício.
+      </p>
+      <div class="home-actions">
+        <a href="#sobre" class="btn btn-saiba-mais">
+          Saiba Mais
+        </a>
+        <span class="home-join-text">
+          <span class="text-muted">ou</span>
+          <a class="home-join-link" [routerLink]="['/produtos']">Faça o seu orçamento</a>
+        </span>
+      </div>
+    </div>
+  </section>
+</body>
+
+
+  <section id="produtos" class="py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="section-image">
+            <img src="assets/cilindros.gif" alt="Icon 1" class="mb-3">
+          </div>
+          <div class="section-text">
+            <h5>Fabricação própria</h5>
+            <p>Fabricamos hastes, buchas de bronze e nylon, facilitando o controle de qualidade e agilizando a reforma.</p>
+            <a href="#">Saiba mais ></a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="section-image">
+            <img src="assets/controle-qualidade.png" alt="Icon 2" class="mb-3">
+          </div>
+          <div class="section-text">
+            <h5>Controle de qualidade</h5>
+            <p>Equipamentos para controle de precisão permitindo alto controle de qualidade.</p>
+            <a href="#">Saiba mais ></a>
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <div class="section-image">
+            <img src="assets/tipos-cilindros-pneumaticos.jpg" alt="Icon 3" class="mb-3">
+          </div>
+          <div class="section-text">
+            <h5>Equipamento embalado</h5>
+            <p>Equipamento embalado após a reforma.</p>
+            <a href="#">Saiba mais ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solucoes" class="py-5" class="servicos">
+  <a class="subtitulo" href="#">Serviços de reforma</a>
+
+  <div class="cards">
+    <div class="card">
+      <div class="img-placeholder"><img src="assets/reforma.jpg" alt="reforma"></div>
+      <h3>Reforma</h3>
+      <p>A reforma consiste na troca de componentes que sofrem desgastes com abrasão, produtos químicos, etc.</p>
+    </div>
+    <div class="card">
+      <div class="img-placeholder"><img src="assets/limpeza.jpg" alt="limpeza"></div>
+      <h3>Limpeza</h3>
+      <p>Limpeza, polimento, recuperação de roscas dos componentes estruturais do cilindro.</p>
+    </div>
+    <div class="card">
+      <div class="img-placeholder"><img src="assets/troca.webp" alt="troca"></div>
+      <h3>Troca</h3>
+      <p>Trocamos os principais componentes como camisas, hastes, buchas de bronze e kit de vedações.</p>
+    </div>
+    <div class="card">
+      <div class="img-placeholder"><img src="assets/desempenho.avif" alt="desempenho"></div>
+      <h3>Desempenho</h3>
+      <p>Após a reforma, o cilindro tem seu desempenho equivalente ao de um equipamento novo.</p>
+    </div>
+    <div class="card">
+      <div class="img-placeholder"><img src="assets/tecnico.avif" alt="especializada"></div>
+      <h3>Especializada</h3>
+      <p>Mão de obra especializada com mais de 20 anos em manutenção de equipamentos pneumáticos e hidráulicos.</p>
+    </div>
+    <div class="card">
+      <div class="img-placeholder"><img src="assets/desenvolvimento.jpg" alt="desenvolvimento"></div>
+      <h3>Desenvolvimento</h3>
+      <p>Desenvolvimento de kits reparo, de acordo com o equipamento do cliente.</p>
+    </div>
+  </div>
+</section>
+
+
+ <!-- Footer -->
+<section id="Contato">
+  <footer class="footer bg-dark text-white pt-5 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>HQZ Cilindros</h5>
+          <ul class="list-unstyled">
+            <li>Rua José Otoni Carvalho, 40 - Sônia Romanelli</li>
+            <li>33255-206 - Pedro Leopoldo-MG</li>
+            <li>+55 (31) 3135-4177 / +55 (31) 98308-3929</li>
+            <li>Email: hqzahzqcilindros.com.br</li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p>&copy; 2025 HQZ Cilindros. Todos os direitos reservados.</p>
+          <div class="d-flex justify-content-md-end gap-3">
+            <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </section>
+
