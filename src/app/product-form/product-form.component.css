@@ -1,0 +1,36 @@
+.card-form{
+    border-radius: 10px;
+    box-shadow: 0 22px 26px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding: 20px 50px;
+
+}
+
+.container-list{
+  padding: 50px;
+}
+
+h2{
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #007bff;
+  letter-spacing: -0.8px;
+  margin-bottom: 20px;
+}
+
+
+.btn-primary-add{
+  background-color: #007bff;
+  border-color: #007bff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  color: #fff;
+  min-width: 164px;
+  font-weight: 700;
+}
+
+
+.btn-secondary{
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  font-weight: 700;
+  min-width: 164px;
+}

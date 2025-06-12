@@ -1,0 +1,67 @@
+.container-user{
+ padding: 50px;
+}
+
+.btn-secondary-orc{
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+  min-width: 164px;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.btn-secondary-orc:hover {
+  background-color: #e3f2fd;
+  color: #007bff;
+  border-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+}
+
+
+h2{
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #007bff;
+  letter-spacing: -0.8px;
+}
+
+.message-history {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  .message-item {
+    padding: 5px 0;
+    border-bottom: 1px dotted #e0e0e0;
+  }
+  .message-item:last-child {
+    border-bottom: none;
+  }
+  .message-role {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  .message-timestamp {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: 10px;
+  }
+  .sent {
+    text-align: right;
+  }
+  .received {
+    text-align: left;
+  }
+  .sent .message-role {
+    color: #28a745;
+  }
+  .received .message-role {
+    color: #007bff;
+  }

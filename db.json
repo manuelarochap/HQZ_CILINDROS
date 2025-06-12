@@ -1,98 +1,338 @@
 {
-  "students": [
-    {
-      "id": "1",
-      "cpf": "12312312312",
-      "name": "Rodrigo",
-      "address": "Às Pampa",
-      "dateOfBirth": "09/12/1991"
-    },
-    {
-      "id": "2",
-      "cpf": "32132132132",
-      "name": "Tayla",
-      "address": "Aquele Lá",
-      "dateOfBirth": "12/12/2002"
-    },
-    {
-      "id": "402752826",
-      "cpf": "asd",
-      "name": "asd",
-      "address": "asd",
-      "dateOfBirth": "2024-12-19"
-    },
-    {
-      "id": "867219434",
-      "cpf": "asd",
-      "name": "Dângelo",
-      "address": "aasd",
-      "dateOfBirth": "2024-12-20"
-    }
-  ],
-  "schools": [
-    {
-      "id": "1",
-      "cnpj": "1",
-      "name": "FUMEC",
-      "type": "Superior"
-    },
-    {
-      "id": "2",
-      "cnpj": "2",
-      "name": "PUC",
-      "type": "Superior"
-    },
-    {
-      "id": "975611078",
-      "cnpj": "523456",
-      "name": "gsdfgh",
-      "type": "Tecnólogo"
-    }
-  ],
-  "school-student": [
-    {
-      "id": "1",
-      "school_id": 1,
-      "student_id": 1,
-      "fos": "Front-End"
-    },
-    {
-      "id": "2",
-      "school_id": 2,
-      "student_id": 2,
-      "fos": "Front-End"
-    },
-    {
-      "id": "244616862",
-      "school_id": "2",
-      "student_id": "867219434",
-      "fos": "Web"
-    },
-    {
-      "id": "558497194",
-      "school_id": "Universidade Braz Cubas",
-      "student_id": "1",
-      "fos": "Web"
-    },
-    {
-      "id": "426247660",
-      "school_id": "Universidade Comunitária da Região de Chapecó - Unochapecó",
-      "student_id": "1",
-      "fos": "Web"
-    }
-  ],
   "accounts": [
     {
       "id": "1",
-      "name": "teste",
+      "name": "Admin User",
       "email": "teste@gmail.com",
-      "password": "admin"
+      "password": "admin",
+      "role": "admin"
     },
     {
-      "id": "256384210",
-      "name": "",
-      "email": "",
-      "password": ""
+      "id": "1",
+      "email": "comprador@exemplo.com",
+      "password": "123",
+      "role": "comprador"
+    },
+    {
+      "id": "785899187",
+      "name": "joao",
+      "email": "joao@gmail.com",
+      "password": "12345678910",
+      "role": "comprador"
+    },
+    {
+      "id": "452995493",
+      "name": "mateus",
+      "email": "mateus@gmail.com",
+      "password": "123456",
+      "role": "comprador"
+    },
+    {
+      "id": "696588972",
+      "name": "Manuela",
+      "email": "manuelarochap12@gmail.com",
+      "password": "12345678910",
+      "role": "comprador"
+    },
+    {
+      "id": "768443989",
+      "name": "Becson",
+      "email": "becsonteste@gmail.com",
+      "password": "123456",
+      "role": "comprador"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod1",
+      "name": "Cilindro Pneumático Dupla Ação",
+      "description": "Cilindro de ar comprimido para automação industrial, dupla ação, diâmetro 32mm.",
+      "price": 150.75,
+      "stock": 50,
+      "categoryId": "cat1",
+      "imageUrl": "https://rioar.ind.br/wp-content/uploads/2023/06/colindros-e-acessorios-1-scaled.webp"
+    },
+    {
+      "id": "prod2",
+      "name": "Válvula Solenoide 5/2 Vias",
+      "description": "Válvula direcional 5/2 vias, operada por solenoide, para controle de fluxo de ar.",
+      "price": 95,
+      "stock": 120,
+      "categoryId": "cat2",
+      "imageUrl": "https://www.samsonbrasil.com.br/wp-content/uploads/2025/01/valvula-3-vias.webp"
+    },
+    {
+      "id": "prod3",
+      "name": "Conexão Reta Macho - Engate Rápido",
+      "description": "Conexão pneumática reta macho para tubos de 8mm, rosca 1/4 NPT.",
+      "price": 5.2,
+      "stock": 100,
+      "categoryId": "cat3",
+      "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_2X_773348-MLA84843123865_052025-F.webp"
+    },
+    {
+      "id": "915457436",
+      "name": "Cilindros",
+      "description": "Os cilindros pneumáticos são dispositivos projetados para gerar uma força mecânica em movimento linear em sua operação com base no ar comprimido.",
+      "price": 1,
+      "stock": 1,
+      "categoryId": "cat1",
+      "imageUrl": "https://rioar.ind.br/wp-content/uploads/2023/06/colindros-e-acessorios-2-scaled.webp"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat1",
+      "name": "Cilindros",
+      "description": "Diversos tipos de cilindros pneumáticos para automação."
+    },
+    {
+      "id": "cat2",
+      "name": "Válvulas",
+      "description": "Válvulas direcionais, de fluxo, de pressão, etc."
+    },
+    {
+      "id": "cat3",
+      "name": "Conexões e Tubos",
+      "description": "Conexões, tubos e acessórios para instalações pneumáticas."
+    },
+    {
+      "id": "cat4",
+      "name": "Unidades de Tratamento de Ar",
+      "description": "Filtros, reguladores, lubrificadores (FRLs)."
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust1",
+      "name": "João Silva",
+      "email": "joao.silva@email.com",
+      "phone": "(31) 98765-4321",
+      "address": "Rua Alfa, 123 - Centro, Belo Horizonte"
+    },
+    {
+      "id": "cust2",
+      "name": "Maria Oliveira",
+      "email": "maria.o@email.com",
+      "phone": "(11) 99876-5432",
+      "address": "Av. Beta, 456 - Indústrias, São Paulo"
+    }
+  ],
+  "orders": [],
+  "quotes": [
+    {
+      "id": "1c6e",
+      "productId": "prod1",
+      "productName": "Cilindro Pneumático Dupla Ação",
+      "quantity": 1,
+      "message": "teste de envio de orcamento",
+      "requesterEmail": "comprador@exemplo.com",
+      "requesterName": "manuekla",
+      "requesterAccountId": "1",
+      "timestamp": "2025-06-10T18:49:16.119Z",
+      "status": "pendente"
+    },
+    {
+      "id": "7983",
+      "productId": "prod1",
+      "productName": "Cilindro Pneumático Dupla Ação",
+      "quantity": 1,
+      "message": "teste",
+      "requesterEmail": "comprador@exemplo.com",
+      "requesterAccountId": "1",
+      "timestamp": "2025-06-10T22:43:38.115Z",
+      "status": "pendente"
+    },
+    {
+      "id": "2315",
+      "productId": "prod2",
+      "productName": "Válvula Solenoide 5/2 Vias",
+      "quantity": 2,
+      "message": "testetesteteste",
+      "requesterEmail": "comprador@exemplo.com",
+      "requesterAccountId": "1",
+      "timestamp": "2025-06-10T22:44:32.160Z",
+      "status": "pendente"
+    },
+    {
+      "id": "42f6",
+      "productId": "prod2",
+      "productName": "Válvula Solenoide 5/2 Vias",
+      "quantity": 1,
+      "message": "quero esse divo",
+      "requesterEmail": "comprador@exemplo.com",
+      "requesterAccountId": "1",
+      "timestamp": "2025-06-10T22:55:15.024Z",
+      "status": "aprovado",
+      "history": [
+        {
+          "senderId": "1",
+          "senderRole": "comprador",
+          "message": "oi, quanto ta",
+          "timestamp": "2025-06-11T11:48:18.097Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "vendedor",
+          "message": "Proposta enviada: Preço R$10.00, Entrega 5 dias, Validade 5 dias. Mensagem: o preco ai burro",
+          "timestamp": "2025-06-11T12:04:20.522Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "comprador",
+          "message": "Proposta aprovada pelo comprador.",
+          "timestamp": "2025-06-11T12:15:53.556Z"
+        }
+      ],
+      "proposedPrice": 10,
+      "deliveryDays": 5,
+      "proposalValidityDays": 5,
+      "vendorMessage": "o preco ai burro"
+    },
+    {
+      "id": "bc5f",
+      "productId": "prod2",
+      "productName": "Válvula Solenoide 5/2 Vias",
+      "quantity": 1,
+      "message": "quero esse divo",
+      "requesterEmail": "comprador@exemplo.com",
+      "requesterAccountId": "1",
+      "timestamp": "2025-06-10T22:55:12.122Z",
+      "status": "cancelado",
+      "history": [
+        {
+          "senderId": "1",
+          "senderRole": "vendedor",
+          "message": "oi divo",
+          "timestamp": "2025-06-11T12:04:42.279Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "comprador",
+          "message": "oi",
+          "timestamp": "2025-06-11T13:55:32.207Z"
+        }
+      ]
+    },
+    {
+      "id": "517d",
+      "productId": "prod1",
+      "productName": "Cilindro Pneumático Dupla Ação",
+      "quantity": 1,
+      "message": "oi divo to querendo",
+      "requesterEmail": "mateus@gmail.com",
+      "requesterName": "",
+      "requesterAccountId": "452995493",
+      "timestamp": "2025-06-11T17:28:42.635Z",
+      "status": "cancelado",
+      "history": [
+        {
+          "senderId": "452995493",
+          "senderRole": "comprador",
+          "message": "oi divo to querendo",
+          "timestamp": "2025-06-11T17:28:42.635Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "vendedor",
+          "message": "Proposta enviada: Preço R$10.00, Entrega 2 dias, Validade 2 dias. Mensagem: vou vender naoi",
+          "timestamp": "2025-06-11T17:30:00.297Z"
+        },
+        {
+          "senderId": "452995493",
+          "senderRole": "comprador",
+          "message": "Proposta recusada pelo comprador.",
+          "timestamp": "2025-06-11T17:30:35.959Z"
+        }
+      ],
+      "proposedPrice": 10,
+      "deliveryDays": 2,
+      "proposalValidityDays": 2,
+      "vendorMessage": "vou vender naoi"
+    },
+    {
+      "id": "f510",
+      "productId": "prod2",
+      "productName": "Válvula Solenoide 5/2 Vias",
+      "quantity": 10,
+      "message": "Desejo comprar 10 quantidades cada uma saindo por 90.",
+      "requesterEmail": "comprador@exemplo.com",
+      "requesterName": "",
+      "requesterAccountId": "1",
+      "timestamp": "2025-06-11T20:05:28.966Z",
+      "status": "aprovado",
+      "history": [
+        {
+          "senderId": "1",
+          "senderRole": "comprador",
+          "message": "Desejo comprar 10 quantidades cada uma saindo por 90.",
+          "timestamp": "2025-06-11T20:05:28.966Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "comprador",
+          "message": "Boa tarde!\n",
+          "timestamp": "2025-06-11T20:06:01.660Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "vendedor",
+          "message": "Proposta enviada: Preço R$90.00, Entrega 2 dias, Validade 5 dias. Mensagem: Consigo fazer esse valor.",
+          "timestamp": "2025-06-11T20:07:05.863Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "comprador",
+          "message": "Proposta aprovada pelo comprador.",
+          "timestamp": "2025-06-11T20:10:39.573Z"
+        }
+      ],
+      "proposedPrice": 90,
+      "deliveryDays": 2,
+      "proposalValidityDays": 5,
+      "vendorMessage": "Consigo fazer esse valor."
+    },
+    {
+      "id": "5257",
+      "productId": "prod1",
+      "productName": "Cilindro Pneumático Dupla Ação",
+      "quantity": 1,
+      "message": "Quero hoje",
+      "requesterEmail": "becsonteste@gmail.com",
+      "requesterName": "",
+      "requesterAccountId": "768443989",
+      "timestamp": "2025-06-11T23:58:12.458Z",
+      "status": "recusado",
+      "history": [
+        {
+          "senderId": "768443989",
+          "senderRole": "comprador",
+          "message": "Quero hoje",
+          "timestamp": "2025-06-11T23:58:12.458Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "vendedor",
+          "message": "Vai ter não",
+          "timestamp": "2025-06-11T23:59:13.979Z"
+        },
+        {
+          "senderId": "1",
+          "senderRole": "vendedor",
+          "message": "Proposta enviada: Preço R$1256.00, Entrega 12 dias, Validade 3 dias. Mensagem: Quer???",
+          "timestamp": "2025-06-12T00:00:38.998Z"
+        },
+        {
+          "senderId": "768443989",
+          "senderRole": "comprador",
+          "message": "Proposta recusada pelo comprador.",
+          "timestamp": "2025-06-12T00:02:12.797Z"
+        }
+      ],
+      "proposedPrice": 1256,
+      "deliveryDays": 12,
+      "proposalValidityDays": 3,
+      "vendorMessage": "Quer???"
     }
   ]
 }

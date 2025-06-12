@@ -1,27 +1,48 @@
 <div class="container-fluid register-bg vh-100 d-flex align-items-center justify-content-center">
-  <div class="row bg-light shadow rounded overflow-hidden" style="max-width: 500px; width: 100%;">
+  <div class="row bg-light shadow overflow-hidden" style="max-width: 500px; width: 100%; border-radius: 20px;">
     <div class="col-md-6 p-4 d-flex flex-column align-items-start justify-content-center" style="background: rgba(255, 255, 255, 0.9);">
       <h3 class="welcome-text">Registre-se</h3>
       <div class="underline-title"></div>
-      <form (ngSubmit)="addAccount()" class="w-100">
+
+      <form [formGroup]="registerForm" (ngSubmit)="addAccount()" class="w-100">
         <div class="form-group mb-3">
           <label for="name" class="form-label"><i class="bi bi-person"></i> Nome</label>
-          <input type="text" id="name" class="form-control" placeholder="Digite seu nome" [(ngModel)]="newAccount.name"/>
+          <input type="text" id="name" class="form-control" placeholder="Digite seu nome" formControlName="name"
+                 [ngClass]="{'is-invalid': name?.invalid && name?.touched, 'is-valid': name?.valid && name?.touched}"/>
+          <div *ngIf="name?.invalid && name?.touched" class="invalid-feedback">
+            <div *ngIf="name?.errors?.['required']">Nome é obrigatório.</div>
+            <div *ngIf="name?.errors?.['minlength']">Nome deve ter no mínimo {{ name?.errors?.['minlength'].requiredLength }} caracteres.</div>
+          </div>
         </div>
+
         <div class="form-group mb-3">
           <label for="email" class="form-label"><i class="bi bi-envelope"></i> Email</label>
-          <input type="email" id="email" class="form-control" placeholder="Digite seu e-mail" [(ngModel)]="newAccount.email"/>
+          <input type="email" id="email" class="form-control" placeholder="Digite seu e-mail" formControlName="email"
+                 [ngClass]="{'is-invalid': email?.invalid && email?.touched, 'is-valid': email?.valid && email?.touched}"/>
+          <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+            <div *ngIf="email?.errors?.['required']">Email é obrigatório.</div>
+            <div *ngIf="email?.errors?.['email']">Email inválido.</div>
+          </div>
         </div>
+
         <div class="form-group mb-3">
           <label for="password" class="form-label"><i class="bi bi-lock"></i> Senha</label>
-          <input type="password" id="password" class="form-control" placeholder="Digite sua senha" [(ngModel)]="newAccount.password"/>
+          <input type="password" id="password" class="form-control" placeholder="Digite sua senha" formControlName="password"
+                 [ngClass]="{'is-invalid': password?.invalid && password?.touched, 'is-valid': password?.valid && password?.touched}"/>
+          <div *ngIf="password?.invalid && password?.touched" class="invalid-feedback">
+            <div *ngIf="password?.errors?.['required']">Senha é obrigatória.</div>
+            <div *ngIf="password?.errors?.['minlength']">Senha deve ter no mínimo {{ password?.errors?.['minlength'].requiredLength }} caracteres.</div>
+          </div>
         </div>
-        <button type="submit" class="btn btn-dark  w-100" >Cadastrar</button>
-         <div class="/*bg-dark*/ text-center p-3 rounded" style="opacity: 0.8;">
-        <p>Já tem uma conta? Entre com suas informações.</p>
-        <button class="btn btn-outline-light mt-2" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</button>
-      </div>
-      </form>
 
+
+        <button type="submit" class="btn btn-dark w-100" [disabled]="registerForm.invalid">Cadastrar</button>
+
+        <div class="text-center p-3 rounded" style="opacity: 0.8;">
+          <p>Já tem uma conta? Entre com suas informações.</p>
+          <button class="btn btn-outline-light mt-2" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

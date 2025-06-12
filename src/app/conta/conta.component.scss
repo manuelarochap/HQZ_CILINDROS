@@ -1,42 +1,5 @@
-/*.container-fluid {
-  font-family: 'Arial', sans-serif;
-}
 
-form label i {
-  margin-right: 8px;
-}
-
-button {
-  border-radius: 20px;
-
-}
-
-
-.btn-dark{
-  background: -webkit-linear-gradient(right, #004C75, #60B5E5);
-}
-
-
-.btn-dark:hover{
- box-shadow: 0px 1px 18px #0072b4;
-}
-
-
-.btn-outline-light{
-  background-color: #60B5E5;
-}
-
-
-.col-md-6 {
-        flex: 0 0 auto;
-        width: 100%;
-    }*/
-
-
-
-
-
-    .register-bg {
+  .register-bg {
   background: linear-gradient(-45deg, #003554, #004C75, #0072ab, #60B5E5);
   background-size: 400% 400%;
   animation: gradientBG 12s ease infinite;
@@ -66,9 +29,6 @@ button {
   transition: transform 0.3s ease;
 }
 
-.row.bg-light:hover {
-  transform: scale(1.03);
-}
 
 .col-md-6.p-4 {
   background: rgba(255, 255, 255, 0.9);
@@ -136,14 +96,12 @@ h3.mb-3 {
 }
 
 
+.col-md-6 {
+  flex: 0 0 auto;
+  width: 100%;
+}
 
-    .col-md-6 {
-        flex: 0 0 auto;
-        width: 100%;
-    }
-
-
-  .welcome-text {
+.welcome-text {
   font-size: 2rem;
   color: #003554;
   font-weight: 600;

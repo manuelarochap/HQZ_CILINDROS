@@ -1,9 +1,5 @@
 .login-container {
- /* height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;*/
-   height: 100vh;
+  height: 100vh;
   width: 100%;
   background: linear-gradient(-45deg, #003554, #004C75, #0072ab, #60B5E5);
   background-size: 400% 400%;
@@ -24,54 +20,6 @@
     background-position: 0% 50%;
   }
 }
-
- /*.login-card {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  max-width: 400px;
-  width: 100%;
-}
-
-
- .welcome-text {
-  font-size: 1.5rem;
-  color: #333;
- }
-
- .bg-image {
-  background: -webkit-linear-gradient(bottom, #003554, #0072ab);
-  background-repeat: no-repeat;
- }
-
-.underline-title {
-  background: -webkit-linear-gradient(right, #004C75, #60B5E5);
-  height: 2px;
-  margin: -1.1rem auto 0 auto;
-  width: 89px;
-}
-
-.btn-dark{
-  background: -webkit-linear-gradient(right, #004C75, #60B5E5);
-  border: none;
-  border-radius: 21px;
-  box-shadow: 0px 1px 8px #0072b4;
-  cursor: pointer;
-  color: white;
-  font-family: "Raleway SemiBold", sans-serif;
-  height: 42.3px;
-  margin: 0 auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  transition: 0.25s;
-  width: 153px;
-}
-
-
-.btn-dark:hover{
-  box-shadow: 0px 1px 18px #0072b4;
-}*/
-
-
 
 .login-card {
   background: rgba(255, 255, 255, 0.95);

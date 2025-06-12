@@ -1,0 +1,130 @@
+<div class="container-form mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Gerenciar Solicitações de Orçamento</h2>
+    <button class="btn btn-secondary-orc" (click)="router.navigate(['/products'])"><i class="bi bi-arrow-left"></i> Voltar</button>
+  </div>
+
+  <div *ngIf="loading" class="alert alert-info text-center">Carregando solicitações de orçamento...</div>
+  <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+
+  <div *ngIf="!loading && quotes.length === 0 && !error" class="alert alert-warning text-center">
+    Nenhuma solicitação de orçamento encontrada.
+  </div>
+
+  <div class="table-responsive" *ngIf="quotes.length > 0 && !loading">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Produto</th>
+          <th>Comprador</th>
+          <th>Qtd.</th>
+          <th>Data Solic.</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let quote of quotes; let i = index">
+          <tr>
+            <td>{{ quote.id }}</td>
+            <td>
+              <a [routerLink]="['/products', quote.productId]">{{ quote.productName }}</a>
+            </td>
+            <td>{{ quote.requesterEmail }}</td>
+            <td>{{ quote.quantity }}</td>
+            <td>{{ quote.timestamp | date:'dd/MM/yyyy HH:mm' }}</td>
+            <td>
+              <span class="badge" [ngClass]="{
+                'bg-warning text-dark': quote.status === 'pendente' || quote.status === 'negociando',
+                'bg-info text-dark': quote.status === 'proposta enviada',
+                'bg-success': quote.status === 'aprovado',
+                'bg-danger': quote.status === 'recusado' || quote.status === 'cancelado'
+              }">
+                {{ quote.status | titlecase }}
+              </span>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-info text-white me-2" (click)="toggleQuoteDetails(i)">
+                {{ expandedQuoteIndex === i ? 'Esconder Detalhes' : 'Ver Detalhes' }}
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="expandedQuoteIndex === i" class="table-info">
+            <td colspan="7">
+              <div class="p-3">
+                <h5>Detalhes da Solicitação</h5>
+                <p><strong>Mensagem do Comprador:</strong> {{ quote.message }}</p>
+
+                <div *ngIf="quote.status === 'pendente' || quote.status === 'negociando' || quote.status === 'proposta enviada'">
+                  <hr>
+                  <h6>Responder com Proposta:</h6>
+                  <form (ngSubmit)="submitProposal(quote)">
+                    <div class="row">
+                      <div class="col-md-4 mb-3">
+                        <label for="proposedPrice-{{i}}" class="form-label">Preço Proposto (Unitário):</label>
+                        <input type="number" id="proposedPrice-{{i}}" class="form-control"
+                               [(ngModel)]="quote.proposedPrice" name="proposedPrice-{{i}}" step="0.01" min="0" required>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="deliveryDays-{{i}}" class="form-label">Prazo de Entrega (dias):</label>
+                        <input type="number" id="deliveryDays-{{i}}" class="form-control"
+                               [(ngModel)]="quote.deliveryDays" name="deliveryDays-{{i}}" min="0" required>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="proposalValidityDays-{{i}}" class="form-label">Validade da Proposta (dias):</label>
+                        <input type="number" id="proposalValidityDays-{{i}}" class="form-control"
+                               [(ngModel)]="quote.proposalValidityDays" name="proposalValidityDays-{{i}}" min="0" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="vendorMessage-{{i}}" class="form-label">Sua Mensagem / Observações:</label>
+                      <textarea id="vendorMessage-{{i}}" class="form-control"
+                                [(ngModel)]="quote.vendorMessage" name="vendorMessage-{{i}}" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Enviar Proposta</button>
+                    <button type="button" class="btn btn-danger" (click)="updateQuoteStatus(quote, 'cancelado')">Cancelar Solicitação</button>
+                  </form>
+                </div>
+
+                <div *ngIf="quote.status === 'proposta enviada' || quote.status === 'aprovado' || quote.status === 'recusado' || quote.status === 'negociando'">
+                    <hr>
+                    <h6>Proposta Atual:</h6>
+                    <p><strong>Preço Unitário Proposto:</strong> R$ {{ quote.proposedPrice | number:'1.2-2' }}</p>
+                    <p><strong>Prazo de Entrega:</strong> {{ quote.deliveryDays }} dias</p>
+                    <p><strong>Validade da Proposta:</strong> {{ quote.proposalValidityDays }} dias</p>
+                    <p><strong>Mensagem do Vendedor:</strong> {{ quote.vendorMessage || 'Nenhuma mensagem adicional.' }}</p>
+
+                    <button *ngIf="quote.status === 'proposta enviada' || quote.status === 'negociando'"
+                            class="btn btn-sm btn-secondary me-2" (click)="updateQuoteStatus(quote, 'pendente')">Reabrir Edição da Proposta</button>
+
+                    <button *ngIf="quote.status === 'aprovado' || quote.status === 'recusado'"
+                            class="btn btn-sm btn-secondary me-2" disabled>Proposta Finalizada</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="updateQuoteStatus(quote, 'cancelado')">Cancelar Solicitação</button>
+              </div>
+
+                <hr>
+                <h6>Histórico de Mensagens:</h6>
+                <div class="message-history">
+                  <div *ngFor="let msg of quote.history" class="message-item mb-2"
+                       [ngClass]="{'sent': msg.senderRole === 'vendedor', 'received': msg.senderRole === 'comprador'}">
+                    <span class="message-role">{{ msg.senderRole | titlecase }}:</span>
+                    <span class="message-text">{{ msg.message }}</span>
+                    <small class="message-timestamp">{{ msg.timestamp | date:'short' }}</small>
+                  </div>
+                </div>
+
+                <div *ngIf="quote.status !== 'aprovado' && quote.status !== 'recusado' && quote.status !== 'cancelado'" class="mt-3">
+                    <h6>Nova Mensagem para o Comprador:</h6>
+                    <textarea class="form-control mb-2" [(ngModel)]="newMessageText" rows="2"></textarea>
+                    <button class="btn btn-outline-primary btn-sm" (click)="sendMessage(quote, newMessageText)">Enviar Mensagem</button>
+                </div>
+
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

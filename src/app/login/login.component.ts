@@ -1,49 +1,53 @@
-import { AccountService } from './../services/account/account.service';
-import { AdminService } from './../services/admin/admin.service';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
-import { Admin } from '../interfaces/admin';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { AccountService } from '../services/account/account.service';
 import { Account } from '../interfaces/account';
-
-
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, RouterModule, FormsModule],
+  imports: [FormsModule,RouterModule,CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  protected accounts: Account[] = []
-  protected account: Account = {id: "", name: "", email: "", password: ""}
-  protected nAccount?: Account
-  username = ""
-  password = ""
+
+export class LoginComponent   {
+
+
+  email!: string;
+  password!: string;
+  loginError: string | null = null;
+
   constructor(
     private accountService: AccountService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.loadAccounts();
-  }
-
-  loadAccounts(): void {
-    this.accountService.getAccounts().subscribe((accounts) => {
-      this.accounts = accounts;
-    })
-  }
-
-  verification(): void {
-    this.accountService.getAccountByEmail(this.account.email).subscribe((account) => {
-
-    })
-  }
-
   onLogin(): void {
+    this.loginError = null;
+    if (!this.email || !this.password) {
+      this.loginError = 'Por favor, preencha o email e a senha.';
+      return;
+    }
 
+    this.accountService.login(this.email, this.password).subscribe({
+      next: (account: Account | null) => {
+        if (account) {
+          console.log('Login bem-sucedido!', account);
+          this.router.navigate(['/products']);
+        } else {
+          this.loginError = 'Email ou senha inválidos.';
+          console.warn('Falha no login: Credenciais inválidas.');
+        }
+      },
+      error: (err) => {
+        console.error('Erro no serviço de login:', err);
+        this.loginError = 'Ocorreu um erro ao tentar fazer login. Verifique sua conexão ou tente novamente mais tarde.';
+      }
+    });
   }
+
 }

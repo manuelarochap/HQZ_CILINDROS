@@ -1,0 +1,50 @@
+.message-history {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  .message-item {
+    padding: 5px 0;
+    border-bottom: 1px dotted #e0e0e0;
+  }
+  .message-item:last-child {
+    border-bottom: none;
+  }
+  .message-role {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  .message-timestamp {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: 10px;
+  }
+  .sent {
+    text-align: right;
+  }
+  .received {
+    text-align: left;
+  }
+  .sent .message-role {
+    color: #007bff;
+  }
+  .received .message-role {
+    color: #28a745;
+  }
+  .product-detail-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  .product-detail-img {
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    padding: 2rem;
+  }
+
+  .container{
+    padding-top: 50px;
+  }

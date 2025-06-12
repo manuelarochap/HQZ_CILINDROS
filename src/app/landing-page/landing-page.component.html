@@ -1,18 +1,14 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
     <a class="navbar-brand" href="#home">
-      <!--<img src="assets/logohqz.jpg" alt="Gradely Logo" class="logo">-->
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/produtos']">Produtos</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/login']">Produtos</a></li>
         <li class="nav-item"><a class="nav-link" href="#solucoes">Soluções</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" href="#comunidade">Comunidade</a></li>-->
-        <!--<li class="nav-item"><a class="nav-link" href="#cursos">Recursos</a></li> -->
-       <!-- <li class="nav-item"><a class="nav-link" href="#instituicoes">Preços</a></li> -->
         <li class="nav-item"><a class="nav-link" href="#Contato">Contato</a></li>
         <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-search"></i></a></li>
         <li class="nav-item"><a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></li>
@@ -37,7 +33,7 @@
         </a>
         <span class="home-join-text">
           <span class="text-muted">ou</span>
-          <a class="home-join-link" [routerLink]="['/produtos']">Faça o seu orçamento</a>
+          <a class="home-join-link" [routerLink]="['/login']">Faça o seu orçamento</a>
         </span>
       </div>
     </div>
@@ -77,7 +73,7 @@
           </div>
           <div class="section-text">
             <h5>Equipamento embalado</h5>
-            <p>Equipamento embalado após a reforma.</p>
+            <p>Equipamento embalado para entrega.</p>
             <a href="#">Saiba mais ></a>
           </div>
         </div>
@@ -86,23 +82,23 @@
   </section>
 
   <section id="solucoes" class="py-5" class="servicos">
-  <a class="subtitulo" href="#">Serviços de reforma</a>
+  <a class="subtitulo" href="#">Competências</a>
 
   <div class="cards">
     <div class="card">
       <div class="img-placeholder"><img src="assets/reforma.jpg" alt="reforma"></div>
       <h3>Reforma</h3>
-      <p>A reforma consiste na troca de componentes que sofrem desgastes com abrasão, produtos químicos, etc.</p>
+      <p>Consiste na troca de componentes que sofrem desgastes com abrasão, produtos químicos, etc. Dentro da garantia.</p>
     </div>
     <div class="card">
       <div class="img-placeholder"><img src="assets/limpeza.jpg" alt="limpeza"></div>
       <h3>Limpeza</h3>
-      <p>Limpeza, polimento, recuperação de roscas dos componentes estruturais do cilindro.</p>
+      <p>Limpeza, polimento, recuperação de roscas dos componentes estruturais do cilindro.Dentro da garantia.</p>
     </div>
     <div class="card">
       <div class="img-placeholder"><img src="assets/troca.webp" alt="troca"></div>
       <h3>Troca</h3>
-      <p>Trocamos os principais componentes como camisas, hastes, buchas de bronze e kit de vedações.</p>
+      <p>Trocamos os principais componentes como camisas, hastes, buchas de bronze e kit de vedações.Dentro da garantia.</p>
     </div>
     <div class="card">
       <div class="img-placeholder"><img src="assets/desempenho.avif" alt="desempenho"></div>
@@ -123,7 +119,6 @@
 </section>
 
 
- <!-- Footer -->
 <section id="Contato">
   <footer class="footer bg-dark text-white pt-5 pb-3">
     <div class="container">

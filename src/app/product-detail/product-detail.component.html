@@ -1,0 +1,75 @@
+<div class="container mt-4">
+  <div *ngIf="loading" class="alert alert-info text-center">Carregando detalhes do produto...</div>
+  <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+
+  <div *ngIf="product && !loading" class="card shadow-sm product-detail-card">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="img-fluid rounded-start product-detail-img" alt="{{ product.name }}">
+        <img *ngIf="!product.imageUrl" src="assets/images/placeholder.jpg" class="img-fluid rounded-start product-detail-img" alt="Imagem indisponível">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h1 class="card-title">{{ product.name }}</h1>
+          <p class="card-text text-muted">{{ product.description }}</p>
+          <p class="card-text fs-4 fw-bold text-primary">R$ {{ product.price | number:'1.2-2' }}</p>
+
+          <hr>
+
+          <div *ngIf="isCompradorLoggedIn()" class="mb-4">
+            <h4>Solicitar Orçamento</h4>
+            <form (ngSubmit)="submitQuoteRequest()">
+              <div class="mb-3">
+                <label for="quantity" class="form-label">Quantidade:</label>
+                <input type="number" id="quantity" class="form-control" [(ngModel)]="quantity" name="quantity" min="1" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensagem:</label>
+                <textarea id="message" class="form-control" [(ngModel)]="message" name="message" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-success me-2">Enviar Solicitação</button>
+            </form>
+            <div *ngIf="submissionMessage" [ngClass]="{'alert-success': submissionMessage.includes('sucesso'), 'alert-danger': submissionMessage.includes('erro')}" class="alert mt-3">
+                {{ submissionMessage }}
+            </div>
+          </div>
+
+          <div *ngIf="!isCompradorLoggedIn() && isLoggedIn" class="alert alert-info">
+            Você está logado como **{{ currentUserRole | titlecase }}**. A opção de solicitação de orçamento é apenas para **compradores**.
+          </div>
+          <div *ngIf="!isLoggedIn" class="alert alert-info">
+            <a routerLink="/login">Faça login</a> para solicitar um orçamento.
+          </div>
+
+          <hr>
+
+          <div *ngIf="isCompradorLoggedIn() && vendor">
+            <button class="btn btn-info text-white mb-3" (click)="toggleVendorContact()">
+              {{ showVendorContact ? 'Esconder Contato do Vendedor' : 'Ver Contato do Vendedor' }}
+            </button>
+
+            <div *ngIf="showVendorContact" class="card p-3 bg-light">
+              <h6>Informações de Contato do Vendedor:</h6>
+              <p class="mb-1"><strong>Email:</strong> <a href="mailto:{{ vendor.contactEmail }}">{{ vendor.contactEmail || 'N/A' }}</a></p>
+              <p class="mb-0"><strong>Telefone:</strong> <a href="tel:{{ vendor.phone }}">{{ vendor.phone || 'N/A' }}</a></p>
+            </div>
+            <div *ngIf="!vendor" class="alert alert-warning mt-3">
+              Não foi possível carregar as informações de contato do vendedor para este produto.
+            </div>
+          </div>
+
+
+          <div *ngIf="hasManagementPermission()" class="mt-4">
+            <hr>
+            <h4>Ações do Administrador/Vendedor</h4>
+            <a [routerLink]="['/products/edit', product.id]" class="btn btn-secondary me-2">Editar Produto</a>
+            <button class="btn btn-danger" (click)="deleteProduct(product.id)">Excluir Produto</button>
+          </div>
+
+          <button class="btn btn-outline-secondary mt-4" (click)="router.navigate(['/products'])">Voltar para Lista</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

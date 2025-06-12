@@ -1,41 +1,71 @@
-import { AccountService } from './../services/account/account.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AccountService } from './../services/account/account.service';
 import { Account } from '../interfaces/account';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-conta',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './conta.component.html',
   styleUrl: './conta.component.scss'
 })
-export class ContaComponent implements OnInit{
-  protected accounts: Account[] = []
-  protected newAccount: Account = { id: "", name: "", email: "", password: ""}
+export class ContaComponent implements OnInit {
+
+  registerForm!: FormGroup;
+
   constructor(
-    private active: ActivatedRoute,
     private accountService: AccountService,
-    private router: Router) {}
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.loadAccounts();
-  }
+    this.registerForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+    });
 
-  loadAccounts(): void {
-    this.accountService.getAccounts().subscribe((accounts) => {
-      this.accounts = accounts;
-    })
   }
 
   addAccount(): void {
-    this.newAccount.id = Math.floor(Math.random() * 1000000000).toString();
-    this.accountService.addAccount(this.newAccount).subscribe((account) => {
-      this.accounts.push(account);
-      this.newAccount = { id: "", name: "", email: "", password: ""};
-    });
+    if (this.registerForm.valid) {
+      const newAccount: Account = {
+        id: Math.floor(Math.random() * 1000000000).toString(),
+        name: this.registerForm.value.name,
+        email: this.registerForm.value.email,
+        password: this.registerForm.value.password,
+        role: this.registerForm.value.role
+      };
 
-    this.router.navigate(['/']);
+      this.accountService.addAccount(newAccount).subscribe({
+        next: (account) => {
+          console.log('Conta cadastrada com sucesso:', account);
+          this.registerForm.reset();
+          this.router.navigate(['/login']);
+        },
+        error: (error) => {
+          console.error('Erro ao cadastrar conta:', error);
+        }
+      });
+    } else {
+      this.markAllFormFieldsAsTouched(this.registerForm);
+      console.log('Formulário inválido. Verifique os campos.');
+    }
   }
+
+  private markAllFormFieldsAsTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+      if (control instanceof FormGroup) {
+        this.markAllFormFieldsAsTouched(control);
+      }
+    });
+  }
+
+  get name() { return this.registerForm.get('name'); }
+  get email() { return this.registerForm.get('email'); }
+  get password() { return this.registerForm.get('password'); }
 }
